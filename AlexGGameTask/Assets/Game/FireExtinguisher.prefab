@@ -115,7 +115,7 @@ Transform:
   - {fileID: 6889056847333329024}
   - {fileID: 8182114196989905891}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!114 &825682724
 MonoBehaviour:
@@ -131,7 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minHeight: 1
   maxHeight: 3
-  heightLevel: 0.5
+  powder: 1
+  particles: {fileID: 8182114196989905888}
 --- !u!1001 &2611784060008037257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,6 +192,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 148d7dac05d24f24d8429fcaf9a4582f, type: 3}
+--- !u!198 &8182114196989905888 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6175101673041424489, guid: 148d7dac05d24f24d8429fcaf9a4582f, type: 3}
+  m_PrefabInstance: {fileID: 2611784060008037257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8182114196989905891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6175101673041424490, guid: 148d7dac05d24f24d8429fcaf9a4582f, type: 3}

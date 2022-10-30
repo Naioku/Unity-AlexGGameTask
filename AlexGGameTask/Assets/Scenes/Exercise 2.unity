@@ -1334,10 +1334,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6889056847370562149}
+        m_TargetAssemblyTypeName: Tools.FireExtinguisherController, Assembly-CSharp
+        m_MethodName: SetHeightLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1677077246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1362,7 @@ GameObject:
   - component: {fileID: 1677077250}
   - component: {fileID: 1677077249}
   - component: {fileID: 1677077248}
+  - component: {fileID: 1677077251}
   m_Layer: 5
   m_Name: Stifle
   m_TagString: Untagged
@@ -1460,6 +1473,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677077246}
   m_CullTransparentMesh: 1
+--- !u!114 &1677077251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677077246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148d39c3d07c476abdf68c73fc381e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6889056847370562149}
+        m_TargetAssemblyTypeName: Tools.FireExtinguisherController, Assembly-CSharp
+        m_MethodName: StartStifle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ButtonUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6889056847370562149}
+        m_TargetAssemblyTypeName: Tools.FireExtinguisherController, Assembly-CSharp
+        m_MethodName: StopStifle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1688222235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1829,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 825682724, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
+      propertyPath: powderLevelLabel
+      value: 
+      objectReference: {fileID: 425561908}
     - target: {fileID: 6889056847480789611, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
       propertyPath: m_Name
       value: FireExtinguisher
@@ -1825,3 +1884,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
+--- !u!114 &6889056847370562149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 825682724, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
+  m_PrefabInstance: {fileID: 6889056847370562148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae57995487367cd4ea9f229c026d88aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
