@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DragAndDropController : MonoBehaviour
 {
-    [SerializeField] private float maxRaycastDistance = 40f;
+    [SerializeField] private float maxRaycastDistance = 40;
     [SerializeField] private LayerMask draggableLayers;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private float pickingUpHeight = 0.25f;
