@@ -4,13 +4,17 @@ using UnityEngine;
 public class DragAndDropController : MonoBehaviour
 {
     [SerializeField] private float maxRaycastDistance = 40f;
-    [SerializeField] private LayerMask searchingLayers;
+    [SerializeField] private LayerMask draggableLayers;
+    [SerializeField] private LayerMask groundLayers;
+    [SerializeField] private float pickingUpHeight = 0.25f;
     
+    private Camera _mainCamera;
     private InputReader _inputReader;
     private GameObject _selectedObject;
 
     private void Awake()
     {
+        _mainCamera = Camera.main;
         _inputReader = GetComponent<InputReader>();
     }
 
@@ -34,7 +38,19 @@ public class DragAndDropController : MonoBehaviour
 
     private void ManageDragging()
     {
-        print("Managing dragging...");
+        if (!GetGroundHitPosition(out Vector3 destination)) return;
+        destination.y = _selectedObject.transform.position.y;
+        _selectedObject.transform.position = destination;
+    }
+    
+    private bool GetGroundHitPosition(out Vector3 result)
+    {
+        result = Vector3.zero;
+        bool hasHit = GetRaycastHit(out RaycastHit hit, groundLayers);
+        if (!hasHit) return false;
+        
+        result = hit.point;
+        return true;
     }
 
     private void HandleClick(bool isPressed)
@@ -52,28 +68,44 @@ public class DragAndDropController : MonoBehaviour
     private void PickUp()
     {
         _selectedObject = GetClickedObject();
-        print("Picking up...");
+        if (!_selectedObject) return;
+        
+        ToggleDragAndDrop(pickingUpHeight, false);
     }
 
     private void PutDown()
     {
+        if (!_selectedObject) return;
+        
+        ToggleDragAndDrop(-pickingUpHeight, true);
         _selectedObject = null;
-        print("Putting down...");
-    }
-
-    private GameObject GetClickedObject()
-    {
-        bool hasHit = Physics.Raycast(
-            GetMouseRay(_inputReader.MouseScreenPosition),
-            out RaycastHit hit,
-            maxRaycastDistance,
-            searchingLayers);
-            
-        return hasHit ? hit.collider.gameObject : null;
     }
     
-    private static Ray GetMouseRay(Vector2 mousePosition)
+    private GameObject GetClickedObject()
     {
-        return Camera.main.ScreenPointToRay(mousePosition);
+        bool hasHit = GetRaycastHit(out RaycastHit hit, draggableLayers);
+        return hasHit ? hit.collider.gameObject : null;
+    }
+
+    private bool GetRaycastHit(out RaycastHit hit, LayerMask searchingLayers)
+    {
+        return Physics.Raycast(
+            GetMouseRay(_inputReader.MouseScreenPosition),
+            out hit,
+            maxRaycastDistance,
+            searchingLayers);
+    }
+
+    private Ray GetMouseRay(Vector2 mousePosition)
+    {
+        return _mainCamera.ScreenPointToRay(mousePosition);
+    }
+
+    private void ToggleDragAndDrop(float pickingUpHeight, bool shouldCursorBeVisible)
+    {
+        Cursor.visible = shouldCursorBeVisible;
+        Vector3 pickingUpPosition = _selectedObject.transform.position;
+        pickingUpPosition.y += pickingUpHeight;
+        _selectedObject.transform.position = pickingUpPosition;
     }
 }

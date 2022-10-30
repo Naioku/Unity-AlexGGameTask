@@ -275,6 +275,14 @@ PrefabInstance:
       propertyPath: <Temperature>k__BackingField
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2674793365940767374, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153906035072053820, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57376ac8622f84a4d8b5549c88bde77d, type: 2}
     - target: {fileID: 5659068894978650745, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -582,9 +590,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRaycastDistance: 40
-  searchingLayers:
+  draggableLayers:
     serializedVersion: 2
     m_Bits: 64
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  pickingUpHeight: 0.25
 --- !u!114 &599024444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +1039,14 @@ PrefabInstance:
       propertyPath: <Temperature>k__BackingField
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 2674793365940767374, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153906035072053820, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 352a0e39a8346b1459c75df2d4288171, type: 2}
     - target: {fileID: 5659068894978650745, guid: 6dbdce73d45144a4382d258a884fdbf8, type: 3}
       propertyPath: m_RootOrder
       value: -1
