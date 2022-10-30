@@ -439,10 +439,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 398072578159735906, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
       propertyPath: m_Name
       value: BurningItem
@@ -516,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889056847480789620, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6889056847480789620, guid: 150fffbaf97fef24eb1118bf4f806d61, type: 3}
       propertyPath: m_LocalPosition.z

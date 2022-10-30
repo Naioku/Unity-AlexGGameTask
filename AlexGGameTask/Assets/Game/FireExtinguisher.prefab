@@ -92,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889056847480789620}
+  - component: {fileID: 825682724}
   m_Layer: 0
   m_Name: FireExtinguisher
   m_TagString: Untagged
@@ -107,15 +108,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6889056847480789611}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.859, y: 1.83, z: 0}
+  m_LocalPosition: {x: 1.859, y: 2, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6889056847333329024}
   - {fileID: 8182114196989905891}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+--- !u!114 &825682724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889056847480789611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae57995487367cd4ea9f229c026d88aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHeight: 1
+  maxHeight: 3
+  heightLevel: 0.5
 --- !u!1001 &2611784060008037257
 PrefabInstance:
   m_ObjectHideFlags: 0
