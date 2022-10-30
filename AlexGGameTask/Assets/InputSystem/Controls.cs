@@ -44,6 +44,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OnMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""849dea2f-1ae2-4bcb-96b3-bb9d8fe62e91"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,61 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""MouseMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""85d0adea-1b67-45ba-bdf1-870200782690"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OnMove"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""90192209-f585-459c-b13a-5cd395fbf215"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OnMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f72230c9-0ccd-4ecc-9e78-9cdaaecd1f02"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OnMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9138bb1f-aad1-4658-ab2a-1a6b69ac6942"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OnMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8c41270a-e1a0-4e6c-9276-1942ed60f757"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OnMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -95,6 +159,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_DragDrop = m_Player.FindAction("Drag&Drop", throwIfNotFound: true);
         m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
+        m_Player_OnMove = m_Player.FindAction("OnMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -156,12 +221,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_DragDrop;
     private readonly InputAction m_Player_MouseMove;
+    private readonly InputAction m_Player_OnMove;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @DragDrop => m_Wrapper.m_Player_DragDrop;
         public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
+        public InputAction @OnMove => m_Wrapper.m_Player_OnMove;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -177,6 +244,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MouseMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
                 @MouseMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
                 @MouseMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseMove;
+                @OnMove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnMove;
+                @OnMove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnMove;
+                @OnMove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnMove;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -187,6 +257,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MouseMove.started += instance.OnMouseMove;
                 @MouseMove.performed += instance.OnMouseMove;
                 @MouseMove.canceled += instance.OnMouseMove;
+                @OnMove.started += instance.OnOnMove;
+                @OnMove.performed += instance.OnOnMove;
+                @OnMove.canceled += instance.OnOnMove;
             }
         }
     }
@@ -204,5 +277,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnDragDrop(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
+        void OnOnMove(InputAction.CallbackContext context);
     }
 }

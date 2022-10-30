@@ -8,7 +8,8 @@ namespace Core
     {
         public event Action<bool> SelectionActivatedEvent;
         public Vector2 MouseScreenPosition { get; private set; }
-
+        public Vector2 PlayerMovementValue { get; private set; }
+        
         private Controls _controls;
 
         private void Start()
@@ -34,6 +35,11 @@ namespace Core
         public void OnMouseMove(InputAction.CallbackContext context)
         {
             MouseScreenPosition = context.ReadValue<Vector2>();
+        }
+
+        public void OnOnMove(InputAction.CallbackContext context)
+        {
+            PlayerMovementValue = context.ReadValue<Vector2>();
         }
     }
 }
