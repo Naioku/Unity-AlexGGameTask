@@ -25,6 +25,8 @@ namespace Tools
 
         private bool HasPowder => _remainingTimeOfUse > 0;
 
+        
+
         private void Start()
         {
             _remainingTimeOfUse = powderLevel * durationWhenMax;

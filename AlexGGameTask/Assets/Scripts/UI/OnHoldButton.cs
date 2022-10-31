@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace Utils
+namespace UI
 {
     public class OnHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {

@@ -1273,6 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452739902}
   - component: {fileID: 1452739903}
+  - component: {fileID: 1452739904}
   m_Layer: 5
   m_Name: ExtinguisherPosition
   m_TagString: Untagged
@@ -1352,6 +1353,33 @@ MonoBehaviour:
   m_WholeNumbers: 0
   m_Value: 0.5
   m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6889056847370562149}
+        m_TargetAssemblyTypeName: Tools.FireExtinguisherController, Assembly-CSharp
+        m_MethodName: SetHeightLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1452739904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452739901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20409024179b45c4eaa334543d46e995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6889056847370562149}
