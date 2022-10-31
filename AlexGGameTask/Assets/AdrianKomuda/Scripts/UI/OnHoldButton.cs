@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace UI
+namespace AdrianKomuda.Scripts.UI
 {
     public class OnHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {

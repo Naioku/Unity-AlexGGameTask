@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI
+namespace AdrianKomuda.Scripts.UI
 {
     public class SliderController : MonoBehaviour
     {

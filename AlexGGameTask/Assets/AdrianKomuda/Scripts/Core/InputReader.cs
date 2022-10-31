@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Core
+namespace AdrianKomuda.Scripts.Core
 {
     public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {

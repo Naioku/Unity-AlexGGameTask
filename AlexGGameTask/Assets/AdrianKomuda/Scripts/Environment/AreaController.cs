@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Environment
+namespace AdrianKomuda.Scripts.Environment
 {
     public class AreaController : MonoBehaviour
     {
