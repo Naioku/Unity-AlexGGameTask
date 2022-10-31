@@ -14,6 +14,7 @@ namespace Tools
         [SerializeField] private TextMeshProUGUI powderLevelLabel;
         [Tooltip("On how long should last when filled to max value? [seconds]")]
         [SerializeField] private float durationWhenMax = 10;
+        [SerializeField] private AnimationCurve stiflingEfficiencyCurve;
         [SerializeField] private ParticleSystem particles;
         [SerializeField] private Burnable burnable;
 
@@ -64,7 +65,8 @@ namespace Tools
                 _remainingTimeOfUse = Mathf.Max(0, _remainingTimeOfUse - Time.deltaTime);
                 powderLevel = _remainingTimeOfUse / durationWhenMax;
                 DisplayPowderLevel();
-                burnable.Stifle(_currentHeightLevelNormalized);
+                float extinguishingPercent = stiflingEfficiencyCurve.Evaluate(_currentHeightLevelNormalized);
+                burnable.Stifle(extinguishingPercent);
                 yield return null;
             }
             particles.Stop();

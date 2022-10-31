@@ -131,8 +131,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minHeight: 1
   maxHeight: 3
-  powder: 1
+  powderLevel: 1
+  powderLevelLabel: {fileID: 0}
+  durationWhenMax: 10
+  stiflingEfficiencyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.499999
+      inSlope: -0.081530266
+      outSlope: -0.081530266
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06582616
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   particles: {fileID: 8182114196989905888}
+  burnable: {fileID: 0}
 --- !u!1001 &2611784060008037257
 PrefabInstance:
   m_ObjectHideFlags: 0

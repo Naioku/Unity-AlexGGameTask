@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Environment
@@ -6,22 +7,63 @@ namespace Environment
     {
         [SerializeField] private bool isBurning = true;
         [SerializeField] private ParticleSystem particles;
-        [SerializeField] private AnimationCurve stiflingNormalizedEfficiency;
+        [SerializeField] private float burningUpSpeed = 5;
 
-        public float _burningPercent = 1;
-        
+        private float _burningPercent = 1;
+        private ParticleSystem.EmissionModule _emissionModule;
+        private float _baseRateOverTime;
+        private Coroutine _burningCoroutine;
+
+        private void Awake()
+        {
+            _emissionModule = particles.emission;
+            _baseRateOverTime = _emissionModule.rateOverTimeMultiplier;
+        }
+
         private void Start()
         {
             if (isBurning)
             {
-                particles.Play();
+                StartBurning();
             }
         }
 
-        public void Stifle(float extinguisherHeightNormalized)
+        public void Stifle(float extinguishingPercent)
         {
-            float valueToSubtract = stiflingNormalizedEfficiency.Evaluate(extinguisherHeightNormalized);
-            _burningPercent = Mathf.Max(0, _burningPercent - valueToSubtract * Time.deltaTime);
+            _burningPercent = Mathf.Max(0, _burningPercent - extinguishingPercent * Time.deltaTime);
+        }
+
+        private void StartBurning()
+        {
+            if (_burningCoroutine != null)
+            {
+                StopCoroutine(_burningCoroutine);
+            }
+            
+            _burningCoroutine = StartCoroutine(BurningCoroutine());
+            particles.Play();
+        }
+
+        private IEnumerator BurningCoroutine()
+        {
+            while (isBurning)
+            {
+                if (_burningPercent <= 0)
+                {
+                    StopBurning();
+                    yield break;
+                }
+                _burningPercent = Mathf.Min(1, _burningPercent + burningUpSpeed * Time.deltaTime);
+                _emissionModule.rateOverTime = _baseRateOverTime * _burningPercent;
+                yield return null;
+            }
+        }
+
+        private void StopBurning()
+        {
+            isBurning = false;
+            particles.Stop();
+            _emissionModule.rateOverTime = _baseRateOverTime;
         }
     }
 }

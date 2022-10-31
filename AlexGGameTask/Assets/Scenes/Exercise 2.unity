@@ -1819,26 +1819,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1688222236}
     m_Modifications:
-    - target: {fileID: 520469898, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
-      propertyPath: stiflingNormalizedEfficiency.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 520469898, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
-      propertyPath: stiflingNormalizedEfficiency.m_Curve.Array.data[0].value
-      value: 0.1999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 520469898, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
-      propertyPath: stiflingNormalizedEfficiency.m_Curve.Array.data[0].inSlope
-      value: -0.081530266
-      objectReference: {fileID: 0}
-    - target: {fileID: 520469898, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
-      propertyPath: stiflingNormalizedEfficiency.m_Curve.Array.data[0].outSlope
-      value: -0.081530266
-      objectReference: {fileID: 0}
-    - target: {fileID: 520469898, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
-      propertyPath: stiflingNormalizedEfficiency.m_Curve.Array.data[0].outWeight
-      value: 0.06582616
-      objectReference: {fileID: 0}
     - target: {fileID: 398072578159735906, guid: fd771dbe5535ad04fb2299a9cadaecf2, type: 3}
       propertyPath: m_Name
       value: BurningItem
