@@ -25,10 +25,15 @@ namespace Tools
 
         private bool HasPowder => _remainingTimeOfUse > 0;
 
-        
-
         private void Start()
         {
+            _remainingTimeOfUse = powderLevel * durationWhenMax;
+            DisplayPowderLevel();
+        }
+
+        public void ReloadExtinguisher()
+        {
+            powderLevel = 1;
             _remainingTimeOfUse = powderLevel * durationWhenMax;
             DisplayPowderLevel();
         }
