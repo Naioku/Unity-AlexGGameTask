@@ -1,7 +1,7 @@
-using Core;
+using AdrianKomuda.Scripts.Core;
 using UnityEngine;
 
-namespace ObjectMovement
+namespace AdrianKomuda.Scripts.ObjectMovement
 {
     public class ObjectControllerDragAndDrop : MonoBehaviour
     {

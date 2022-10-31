@@ -1,9 +1,9 @@
 using System.Collections;
-using Environment;
+using AdrianKomuda.Scripts.Environment;
 using TMPro;
 using UnityEngine;
 
-namespace Tools
+namespace AdrianKomuda.Scripts.Tools
 {
     public class FireExtinguisherController : MonoBehaviour
     {

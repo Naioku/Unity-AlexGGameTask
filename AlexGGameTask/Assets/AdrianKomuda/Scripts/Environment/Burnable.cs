@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Environment
+namespace AdrianKomuda.Scripts.Environment
 {
     public class Burnable : MonoBehaviour
     {
